@@ -7,52 +7,15 @@
 
 import SwiftUI
 
-/*
-struct SecondView: View {
-    @State private var username: String = ""
-    @State private var password: String = ""
-    
-    var body: some View {
-        VStack {
-            Text("Tela 2")
-                .font(.largeTitle)
-            
-            TextField("Username", text: $username)
-                .textFieldStyle(RoundedBorderTextFieldStyle())
-                .padding()
-            
-            SecureField("Password", text: $password)
-                .textFieldStyle(RoundedBorderTextFieldStyle())
-                .padding()
-            
-            Button(action: {
-                // Adicione aqui a lógica para autenticar o usuário
-            }) {
-                Text("Login")
-                    .font(.title)
-                    .padding()
-                    .background(Color.blue)
-                    .foregroundColor(.white)
-                    .cornerRadius(10)
-            }
-            .padding()
-            
-            Spacer()
-        }
-        .navigationBarTitle("Login")
-        .padding()
-    }
-}
- */
-enum AuthenticationStatus {
+enum AuthenticationStatusProfessor {
     case success
     case failure
 }
 
-struct SecondView: View {
+struct LoginProfessor: View {
     @State private var username: String = ""
     @State private var password: String = ""
-    @State private var authenticationStatus: AuthenticationStatus?
+    @State private var AuthenticationStatusProfessor: AuthenticationStatusProfessor?
     
     var body: some View {
         VStack {
@@ -74,7 +37,7 @@ struct SecondView: View {
             .foregroundColor(.white)
             .cornerRadius(10)
             
-            switch authenticationStatus {
+            switch AuthenticationStatusProfessor {
             case .success:
                 Text("Autenticação bem-sucedida!")
             case .failure:
@@ -92,19 +55,19 @@ struct SecondView: View {
         // Verificar se as credenciais são válidas, por exemplo, consultando um serviço de autenticação
         
         // Exemplo de lógica simples para autenticar o usuário
-        if username == "usuario" && password == "senha" {
-            authenticationStatus = .success
+        if username == "professor" && password == "senha" {
+            AuthenticationStatusProfessor = .success
         } else {
-            authenticationStatus = .failure
+            AuthenticationStatusProfessor = .failure
         }
     }
 }
 
 
 
-struct SecondView_Previews: PreviewProvider {
+struct TelaLoginProfessor_Previews: PreviewProvider {
     static var previews: some View {
-        SecondView()
+        LoginProfessor()
     }
 }
 

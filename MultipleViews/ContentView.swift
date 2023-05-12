@@ -18,8 +18,8 @@ struct ContentView: View {
                 
                 Spacer()
                 
-                NavigationLink(destination: SecondView()) {
-                    Text("Entrar como professor")
+                NavigationLink(destination: LoginAluno()) {
+                    Text("Entrar como aluno")
                         .font(.title)
                         //.padding()
                         .background(.clear)
@@ -27,8 +27,8 @@ struct ContentView: View {
                         //.cornerRadius(10)
                 }
                 
-                NavigationLink(destination: SecondView()) {
-                    Text("Entrar como aluno")
+                NavigationLink(destination: LoginProfessor()) {
+                    Text("Entrar como professor")
                         .font(.title)
                         //.padding()
                         .background(.clear)
