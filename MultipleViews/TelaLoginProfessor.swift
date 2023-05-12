@@ -47,6 +47,7 @@ struct LoginProfessor: View {
                 EmptyView()
             }
         }
+        .navigationBarTitle("Bem-vindo, professor!")
         .padding()
     }
     

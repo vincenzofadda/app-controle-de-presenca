@@ -85,6 +85,7 @@ struct LoginAluno: View {
                 EmptyView()
             }
         }
+        .navigationBarTitle("Bem-vindo, estudante!")
         .padding()
     }
     
