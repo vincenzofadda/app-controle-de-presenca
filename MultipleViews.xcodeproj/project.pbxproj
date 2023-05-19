@@ -11,8 +11,8 @@
 		CE797AE42A0EAEF00093B020 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE797AE32A0EAEF00093B020 /* ContentView.swift */; };
 		CE797AE62A0EAEF00093B020 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE797AE52A0EAEF00093B020 /* Assets.xcassets */; };
 		CE797AE92A0EAEF00093B020 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE797AE82A0EAEF00093B020 /* Preview Assets.xcassets */; };
-		CE797AF02A0EB02B0093B020 /* TelaLoginAluno.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE797AEF2A0EB02B0093B020 /* TelaLoginAluno.swift */; };
-		CE797AF22A0ED04A0093B020 /* TelaLoginProfessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE797AF12A0ED04A0093B020 /* TelaLoginProfessor.swift */; };
+		CE797AF02A0EB02B0093B020 /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE797AEF2A0EB02B0093B020 /* Login.swift */; };
+		CE797AF22A0ED04A0093B020 /* Cadastro.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE797AF12A0ED04A0093B020 /* Cadastro.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,8 +21,8 @@
 		CE797AE32A0EAEF00093B020 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		CE797AE52A0EAEF00093B020 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CE797AE82A0EAEF00093B020 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		CE797AEF2A0EB02B0093B020 /* TelaLoginAluno.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TelaLoginAluno.swift; sourceTree = "<group>"; };
-		CE797AF12A0ED04A0093B020 /* TelaLoginProfessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TelaLoginProfessor.swift; sourceTree = "<group>"; };
+		CE797AEF2A0EB02B0093B020 /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
+		CE797AF12A0ED04A0093B020 /* Cadastro.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cadastro.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,8 +57,8 @@
 			children = (
 				CE797AE12A0EAEF00093B020 /* MultipleViewsApp.swift */,
 				CE797AE32A0EAEF00093B020 /* ContentView.swift */,
-				CE797AEF2A0EB02B0093B020 /* TelaLoginAluno.swift */,
-				CE797AF12A0ED04A0093B020 /* TelaLoginProfessor.swift */,
+				CE797AEF2A0EB02B0093B020 /* Login.swift */,
+				CE797AF12A0ED04A0093B020 /* Cadastro.swift */,
 				CE797AE52A0EAEF00093B020 /* Assets.xcassets */,
 				CE797AE72A0EAEF00093B020 /* Preview Content */,
 			);
@@ -143,8 +143,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CE797AF02A0EB02B0093B020 /* TelaLoginAluno.swift in Sources */,
-				CE797AF22A0ED04A0093B020 /* TelaLoginProfessor.swift in Sources */,
+				CE797AF02A0EB02B0093B020 /* Login.swift in Sources */,
+				CE797AF22A0ED04A0093B020 /* Cadastro.swift in Sources */,
 				CE797AE42A0EAEF00093B020 /* ContentView.swift in Sources */,
 				CE797AE22A0EAEF00093B020 /* MultipleViewsApp.swift in Sources */,
 			);

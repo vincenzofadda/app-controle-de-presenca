@@ -13,22 +13,22 @@ struct ContentView: View {
             VStack {
                 Spacer()
                 
-                Text("Bem vindo(a) ao aplicativo de controle de chamada")
+                Text("Bem vindo(a) ao app")
                     .font(.largeTitle)
                 
                 Spacer()
                 
-                NavigationLink(destination: LoginAluno()) {
-                    Text("Entrar como aluno")
+                NavigationLink(destination: Login()) {
+                    Text("Fazer login")
                         .font(.title)
-                        //.padding()
-                        .background(.clear)
-                        .foregroundColor(.blue)
-                        //.cornerRadius(10)
+                        .padding()
+                        .background(Color.orange)
+                        .foregroundColor(.white)
+                        .cornerRadius(10)
                 }
                 
-                NavigationLink(destination: LoginProfessor()) {
-                    Text("Entrar como professor")
+                NavigationLink(destination: Cadastro()) {
+                    Text("Fazer cadastro")
                         .font(.title)
                         //.padding()
                         .background(.clear)

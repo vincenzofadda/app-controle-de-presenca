@@ -7,55 +7,17 @@
 
 import SwiftUI
 
-/*
-struct SecondView: View {
-    @State private var username: String = ""
-    @State private var password: String = ""
-    
-    var body: some View {
-        VStack {
-            Text("Tela 2")
-                .font(.largeTitle)
-            
-            TextField("Username", text: $username)
-                .textFieldStyle(RoundedBorderTextFieldStyle())
-                .padding()
-            
-            SecureField("Password", text: $password)
-                .textFieldStyle(RoundedBorderTextFieldStyle())
-                .padding()
-            
-            Button(action: {
-                // Adicione aqui a lógica para autenticar o usuário
-            }) {
-                Text("Login")
-                    .font(.title)
-                    .padding()
-                    .background(Color.blue)
-                    .foregroundColor(.white)
-                    .cornerRadius(10)
-            }
-            .padding()
-            
-            Spacer()
-        }
-        .navigationBarTitle("Login")
-        .padding()
-    }
-}
- */
-enum AuthenticationStatusAluno {
+enum AuthenticationStatusProfessor {
     case success
     case failure
 }
 
-struct LoginAluno: View {
+struct Cadastro: View {
     @State private var username: String = ""
     @State private var password: String = ""
-    @State private var AuthenticationStatusAluno: AuthenticationStatusAluno?
+    @State private var AuthenticationStatusProfessor: AuthenticationStatusProfessor?
     
     var body: some View {
-        
         VStack {
             TextField("Nome de usuário", text: $username)
                 .textFieldStyle(RoundedBorderTextFieldStyle())
@@ -75,7 +37,7 @@ struct LoginAluno: View {
             .foregroundColor(.white)
             .cornerRadius(10)
             
-            switch AuthenticationStatusAluno {
+            switch AuthenticationStatusProfessor {
             case .success:
                 Text("Autenticação bem-sucedida!")
             case .failure:
@@ -85,7 +47,7 @@ struct LoginAluno: View {
                 EmptyView()
             }
         }
-        .navigationBarTitle("Bem-vindo, estudante!")
+        .navigationBarTitle("Cadastro")
         .padding()
     }
     
@@ -94,19 +56,19 @@ struct LoginAluno: View {
         // Verificar se as credenciais são válidas, por exemplo, consultando um serviço de autenticação
         
         // Exemplo de lógica simples para autenticar o usuário
-        if username == "aluno" && password == "senha" {
-            AuthenticationStatusAluno = .success
+        if username == "professor" && password == "senha" {
+            AuthenticationStatusProfessor = .success
         } else {
-            AuthenticationStatusAluno = .failure
+            AuthenticationStatusProfessor = .failure
         }
     }
 }
 
 
 
-struct LoginAluno_Previews: PreviewProvider {
+struct Cadastro_Previews: PreviewProvider {
     static var previews: some View {
-        LoginAluno()
+        Cadastro()
     }
 }
 
