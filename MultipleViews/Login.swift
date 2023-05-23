@@ -1,9 +1,7 @@
 import SwiftUI
 
 func criptografaSenha(senha :String) -> String{
-    
-    
-    return ""
+    return senha.sha256()
 }
 
 enum AuthenticationStatus {
@@ -13,9 +11,13 @@ enum AuthenticationStatus {
 
 public struct Usuario: Codable {
     let id: String
+    let nome: String
     let login: String
     let senha: String
     let tipo: String
+    //let reset: Bool
+    //let ativo: Bool
+    // let data_cricao: Date
 }
 
 struct Login: View {
@@ -52,7 +54,7 @@ struct Login: View {
             case .success:
                 Text("Autenticação bem-sucedida!")
             case .failure:
-                Text("Erro de autenticação. Verifique suas credenciais.")
+                Text("Erro de autenticação.  Verifique suas credenciais.")
                     .foregroundColor(.red)
             case .none:
                 EmptyView()
@@ -67,11 +69,11 @@ struct Login: View {
     
     func authenticateUser() async {
         
-        if await procuraUsuario(nome: username) {
+        if await procuraUsuario(nome: username) == true {
             
             let user = retornoUsuario.first
             
-            if user?.senha == password {
+            if user?.senha == password.sha256() {
                 // Senha correta, autenticação bem-sucedida
                 authenticationStatus = .success
             } else {
@@ -80,31 +82,6 @@ struct Login: View {
             }
         }
     }
-        
-        
-        
-//        // Verificar se o usuário existe e se a senha está correta
-//        let userExists = users.contains { user in
-//            return user.login == username
-//        }
-//
-//        if userExists {
-//            // Encontrou o usuário, agora verificar a senha
-//            let user = users.first { user in
-//                return user.login == username
-//            }
-//
-//            if user?.senha == password {
-//                // Senha correta, autenticação bem-sucedida
-//                authenticationStatus = .success
-//            } else {
-//                // Senha incorreta
-//                authenticationStatus = .failure
-//            }
-//        } else {
-//            // Usuário não encontrado
-//            authenticationStatus = .failure
-//        }
 }
 
 struct Login_Previews: PreviewProvider {

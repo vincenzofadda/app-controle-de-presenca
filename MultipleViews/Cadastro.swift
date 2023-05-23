@@ -30,7 +30,8 @@ struct Cadastro: View {
                 .padding()
             
             Button("Entrar") {
-                authenticateUser()
+                postUsuario()
+                //authenticateUser()
             }
             .padding()
             .background(Color.blue)

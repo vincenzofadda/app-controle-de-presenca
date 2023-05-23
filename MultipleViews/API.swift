@@ -109,6 +109,39 @@ func procuraUsuario(nome :String) async -> Bool{
 
 func postUsuario(){
     do {
+
+    guard let url =  URL(string:"https://sheetdb.io/api/v1/5e8nz89fd5puk")
+       else{
+           return
+       }
+       
+        //### This is a little bit simplified. You may need to escape `username` and `password` when they can contain some special characters...
+        // let body = "id=\(username)&password=\(password)"
+        let body = "id=99&login=teste&senha=123456&tipo=Professor"
+        let finalBody = body.data(using: .utf8)
+        print(finalBody)
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        request.httpBody = finalBody
+       
+        URLSession.shared.dataTask(with: request){
+            (data, response, error) in
+                print(response as Any)
+                if let error = error {
+                    print(error)
+                    return
+                }
+                guard let data = data else{
+                    return
+            }
+            print(data, String(data: data, encoding: .utf8) ?? "*unknown encoding*")
+           
+       }.resume()
+    }
+}
+
+func updateSenhaUsuario(){
+    do {
         
         guard let url =  URL(string:"https://sheetdb.io/api/v1/5e8nz89fd5puk")
                else{
@@ -120,7 +153,7 @@ func postUsuario(){
                 let body = "id=99&login=teste&senha=123456&tipo=Professor"
                let finalBody = body.data(using: .utf8)
                var request = URLRequest(url: url)
-               request.httpMethod = "POST"
+               request.httpMethod = "PATCH"
                request.httpBody = finalBody
                
                URLSession.shared.dataTask(with: request){
