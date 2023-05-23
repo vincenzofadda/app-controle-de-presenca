@@ -39,7 +39,7 @@ struct ContentView: View {
                     .ignoresSafeArea()
                 VStack {
                     
-                    Text("Tenha uma sala de aula na palma da sua mao")
+                    Text("Tenha uma sala de aula na palma da sua mão")
                         .font(.body)
                         .foregroundColor(.white)
                         
