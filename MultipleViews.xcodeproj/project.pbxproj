@@ -14,6 +14,7 @@
 		CE797AE92A0EAEF00093B020 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE797AE82A0EAEF00093B020 /* Preview Assets.xcassets */; };
 		CE797AF02A0EB02B0093B020 /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE797AEF2A0EB02B0093B020 /* Login.swift */; };
 		CE797AF22A0ED04A0093B020 /* Cadastro.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE797AF12A0ED04A0093B020 /* Cadastro.swift */; };
+		CE9954102A1D54B1001B7FEF /* telaCadastro.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE99540F2A1D54B1001B7FEF /* telaCadastro.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +26,7 @@
 		CE797AE82A0EAEF00093B020 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		CE797AEF2A0EB02B0093B020 /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
 		CE797AF12A0ED04A0093B020 /* Cadastro.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cadastro.swift; sourceTree = "<group>"; };
+		CE99540F2A1D54B1001B7FEF /* telaCadastro.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = telaCadastro.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +66,7 @@
 				CE311EBC2A1D2F3F0093AC09 /* API.swift */,
 				CE797AE52A0EAEF00093B020 /* Assets.xcassets */,
 				CE797AE72A0EAEF00093B020 /* Preview Content */,
+				CE99540F2A1D54B1001B7FEF /* telaCadastro.swift */,
 			);
 			path = MultipleViews;
 			sourceTree = "<group>";
@@ -146,6 +149,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE9954102A1D54B1001B7FEF /* telaCadastro.swift in Sources */,
 				CE797AF02A0EB02B0093B020 /* Login.swift in Sources */,
 				CE797AF22A0ED04A0093B020 /* Cadastro.swift in Sources */,
 				CE797AE42A0EAEF00093B020 /* ContentView.swift in Sources */,
