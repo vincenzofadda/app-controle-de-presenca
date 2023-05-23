@@ -1,11 +1,17 @@
 import SwiftUI
 
+func criptografaSenha(senha :String) -> String{
+    
+    
+    return ""
+}
+
 enum AuthenticationStatus {
     case success
     case failure
 }
 
-struct Usuario: Codable {
+public struct Usuario: Codable {
     let id: String
     let login: String
     let senha: String
@@ -31,7 +37,11 @@ struct Login: View {
                 .padding()
             
             Button("Entrar") {
-                authenticateUser()
+                Task{
+                    do {
+                        await authenticateUser()
+                    }
+                }
             }
             .padding()
             .background(Color.blue)
@@ -50,22 +60,16 @@ struct Login: View {
         }
         .navigationBarTitle("Login")
         .padding()
-        .task {
-            await fetchData()
-        }
+//        .task {
+//            await fetchData()
+//        }
     }
     
-    func authenticateUser() {
-        // Verificar se o usuário existe e se a senha está correta
-        let userExists = users.contains { user in
-            return user.login == username
-        }
+    func authenticateUser() async {
         
-        if userExists {
-            // Encontrou o usuário, agora verificar a senha
-            let user = users.first { user in
-                return user.login == username
-            }
+        if await procuraUsuario(nome: username) {
+            
+            let user = retornoUsuario.first
             
             if user?.senha == password {
                 // Senha correta, autenticação bem-sucedida
@@ -74,28 +78,33 @@ struct Login: View {
                 // Senha incorreta
                 authenticationStatus = .failure
             }
-        } else {
-            // Usuário não encontrado
-            authenticationStatus = .failure
         }
     }
-    
-    func fetchData() async {
-        guard let url = URL(string: "https://sheetdb.io/api/v1/5e8nz89fd5puk") else {
-            print("A URL não está funcionando.")
-            return
-        }
         
-        do {
-            let (data, _) = try await URLSession.shared.data(from: url)
-            let decoder = JSONDecoder()
-            if let decodedResponse = try? decoder.decode([Usuario].self, from: data) {
-                users = decodedResponse
-            }
-        } catch {
-            print("O dado não é válido.")
-        }
-    }
+        
+        
+//        // Verificar se o usuário existe e se a senha está correta
+//        let userExists = users.contains { user in
+//            return user.login == username
+//        }
+//
+//        if userExists {
+//            // Encontrou o usuário, agora verificar a senha
+//            let user = users.first { user in
+//                return user.login == username
+//            }
+//
+//            if user?.senha == password {
+//                // Senha correta, autenticação bem-sucedida
+//                authenticationStatus = .success
+//            } else {
+//                // Senha incorreta
+//                authenticationStatus = .failure
+//            }
+//        } else {
+//            // Usuário não encontrado
+//            authenticationStatus = .failure
+//        }
 }
 
 struct Login_Previews: PreviewProvider {

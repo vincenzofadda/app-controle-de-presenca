@@ -54,49 +54,57 @@ import SwiftUI
 
 private var users = [Usuario]()
     
-func fetchData() async{
-        // guard let url = URL(string: "https://api.sheety.co/76f5c7009c1695f3365d24f26f3fe380/foundation/usuario")
-        guard let url = URL(string: "https://sheetdb.io/api/v1/5e8nz89fd5puk_")
-        else {
-            print("A URL nao esta funcionando.")
-            return
-        }
-        do {
-            let (dados, _) = try await URLSession.shared.data(from: url)
-            
-            
-            let decoder = JSONDecoder()
-            if let decodedResponse = try? decoder.decode([Usuario].self, from: dados) {
-                users = decodedResponse
-                print("decodificou")
-                // print(users)
-            } else {
-                // print(users)
-                print("nao decodificou")
-            }
-        } catch {
-            print("O dado nao e valido.")
-        }
+func listaUsuarios() async{
+    // guard let url = URL(string: "https://api.sheety.co/76f5c7009c1695f3365d24f26f3fe380/foundation/usuario")
+    guard let url = URL(string: "https://sheetdb.io/api/v1/5e8nz89fd5puk_")
+    else {
+        print("A URL nao esta funcionando.")
+        return
     }
+    do {
+        let (dados, _) = try await URLSession.shared.data(from: url)
+        
+        
+        let decoder = JSONDecoder()
+        if let decodedResponse = try? decoder.decode([Usuario].self, from: dados) {
+            users = decodedResponse
+            print("decodificou")
+            // print(users)
+        } else {
+            // print(users)
+            print("nao decodificou")
+        }
+    } catch {
+        print("O dado nao e valido.")
+    }
+}
     
-    
-    func procuraUsuario() async{
-        guard let url = URL(string: "https://sheetdb.io/api/v1/5e8nz89fd5puk/search?login=felipe")
+
+public var retornoUsuario = [Usuario]()
+
+func procuraUsuario(nome :String) async -> Bool{
+
+    do {
+        
+        guard let url = URL(string: "https://sheetdb.io/api/v1/5e8nz89fd5puk/search?login=\(nome)")
         else {
             print("URL Invalida.")
-            return
+            return false
         }
-        do {
-                let (dados, _) = try await URLSession.shared.data(from: url)
+        
+        let (dados, _) = try await URLSession.shared.data(from: url)
 
-                if let decodedResponse = try? JSONDecoder().decode([Usuario].self, from: dados) {
-                    users = decodedResponse
-                }
+            if let decodedResponse = try? JSONDecoder().decode([Usuario].self, from: dados) {
+                retornoUsuario = decodedResponse
+                // return true
             }
-        catch {
-            print("O dado nao e valido.")
         }
+    catch {
+        print("O dado nao e valido.")
     }
+    
+    return true
+}
 
 
 func postUsuario(){
