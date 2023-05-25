@@ -43,7 +43,8 @@ struct Login: View {
             
             Button(action: {
                 let parameters: [String: Any] = ["id": "6", "nome": "teste"]
-                api.updateSenhaUsuario(parameters: parameters)
+                //api.updateSenhaUsuario(parameters: parameters)
+                api.postUsuario()
             }, label: {
                 Text("Update")
             })

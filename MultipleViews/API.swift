@@ -57,19 +57,18 @@ class API {
     
     public var users = [Usuario]()
     public var usertype = [UsuarioTipo]()
+    public var turma = [Turma]()
     public var retornoUsuario = [Usuario]()
-    
     
     func listaUsuarios() async{
         // guard let url = URL(string: "https://api.sheety.co/76f5c7009c1695f3365d24f26f3fe380/foundation/usuario")
-        guard let url = URL(string: "\(urlPadrao)_")
+        guard let url = URL(string: "\(urlPadrao)?sheet=Usuario")
         else {
             print("A URL nao esta funcionando.")
             return
         }
         do {
             let (dados, _) = try await URLSession.shared.data(from: url)
-            
             
             let decoder = JSONDecoder()
             if let decodedResponse = try? decoder.decode([Usuario].self, from: dados) {
@@ -84,55 +83,75 @@ class API {
             print("O dado nao e valido.")
         }
     }
+    
 
-func listaUsuarioTipo() async{
-    // guard let url = URL(string: "https://api.sheety.co/76f5c7009c1695f3365d24f26f3fe380/foundation/usuario")
-    guard let url = URL(string: "\(urlPadrao)_")
-    else {
-        print("A URL nao esta funcionando.")
-        return
-    }
-    do {
-        let (dados, _) = try await URLSession.shared.data(from: url)        
-        
-        let decoder = JSONDecoder()
-        if let decodedResponse = try? decoder.decode([UsuarioTipo].self, from: dados) {
-            usertype = decodedResponse
-            print("decodificou")
-            // print(users)
-        } else {
-            // print(users)
-            print("nao decodificou")
+    func listaUsuarioTipo() async{
+        // guard let url = URL(string: "https://api.sheety.co/76f5c7009c1695f3365d24f26f3fe380/foundation/usuario")
+        guard let url = URL(string: "\(urlPadrao)?sheet=UsuarioTipo")
+        else {
+            print("A URL nao esta funcionando.")
+            return
         }
-    } catch {
-        print("O dado nao e valido.")
+        do {
+            let (dados, _) = try await URLSession.shared.data(from: url)
+            
+            let decoder = JSONDecoder()
+            if let decodedResponse = try? decoder.decode([UsuarioTipo].self, from: dados) {
+                usertype = decodedResponse
+                print("decodificou")
+                // print(users)
+            } else {
+                // print(users)
+                print("nao decodificou")
+            }
+        } catch {
+            print("O dado nao e valido.")
+        }
     }
-}
+    
+    func listaTurma() async{
+        // guard let url = URL(string: "https://api.sheety.co/76f5c7009c1695f3365d24f26f3fe380/foundation/usuario")
+        guard let url = URL(string: "\(urlPadrao)?sheet=Turma")
+        else {
+            print("A URL nao esta funcionando.")
+            return
+        }
+        do {
+            let (dados, _) = try await URLSession.shared.data(from: url)
+            
+            let decoder = JSONDecoder()
+            if let decodedResponse = try? decoder.decode([Turma].self, from: dados) {
+                turma = decodedResponse
+                print("decodificou")
+                // print(users)
+            } else {
+                // print(users)
+                print("nao decodificou")
+            }
+        } catch {
+            print("O dado nao e valido.")
+        }
+    }
     
     
     
     
     func procuraUsuario(nome :String) async -> Bool{
-        
         do {
-            
             guard let url = URL(string: "\(urlPadrao)/search?login=\(nome)")
             else {
                 print("URL Invalida.")
                 return false
             }
-            
             let (dados, _) = try await URLSession.shared.data(from: url)
             
             if let decodedResponse = try? JSONDecoder().decode([Usuario].self, from: dados) {
                 retornoUsuario = decodedResponse
-                // return true
             }
         }
         catch {
             print("O dado nao e valido.")
         }
-        
         return true
     }
     
@@ -147,15 +166,18 @@ func listaUsuarioTipo() async{
             
             //### This is a little bit simplified. You may need to escape `username` and `password` when they can contain some special characters...
             // let body = "id=\(username)&password=\(password)"
-            let body = "id=99&login=teste&senha=123456&tipo=Professor"
+            // let body = "id=99&login=teste&senha=123456&tipo=Professor"
+            let body = "all"
             let finalBody = body.data(using: .utf8)
             var request = URLRequest(url: url)
-            request.httpMethod = "POST"
+            request.httpMethod = "DELETE"
             request.httpBody = finalBody
+            
+            print(String(data: finalBody!, encoding: .utf8) ?? "*unknown encoding*")
             
             URLSession.shared.dataTask(with: request){
                 (data, response, error) in
-                print(response as Any)
+                //print(response as Any)
                 if let error = error {
                     print(error)
                     return
@@ -163,7 +185,7 @@ func listaUsuarioTipo() async{
                 guard let data = data else{
                     return
                 }
-                print(data, String(data: data, encoding: .utf8) ?? "*unknown encoding*")
+               print(data, String(data: data, encoding: .utf8) ?? "*unknown encoding*")
                 
             }.resume()
         }
