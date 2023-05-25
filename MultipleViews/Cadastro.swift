@@ -7,10 +7,13 @@
 
 import SwiftUI
 
+
 enum AuthenticationStatusProfessor {
     case success
     case failure
 }
+
+
 
 struct Cadastro: View {
     @State private var username: String = ""
@@ -30,7 +33,7 @@ struct Cadastro: View {
                 .padding()
             
             Button("Entrar") {
-                postUsuario()
+                //postUsuario()
                 //authenticateUser()
             }
             .padding()

@@ -20,6 +20,8 @@ public struct Usuario: Codable {
     // let data_cricao: Date
 }
 
+
+
 struct Login: View {
     @State private var username: String = ""
     @State private var password: String = ""
@@ -45,6 +47,17 @@ struct Login: View {
                     }
                 }
             }
+            .padding()
+            .background(Color.blue)
+            .foregroundColor(.white)
+            .cornerRadius(10)
+            
+            Button(action: {
+                let parameters: [String: Any] = ["id": "6", "nome": "teste"]
+                updateSenhaUsuario(parameters: parameters)
+            }, label: {
+                Text("Update")
+            })
             .padding()
             .background(Color.blue)
             .foregroundColor(.white)
