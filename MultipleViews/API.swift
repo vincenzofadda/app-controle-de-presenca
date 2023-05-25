@@ -52,10 +52,12 @@ import SwiftUI
 //         }
 //}
 
-//class API {
+class API {
     let urlPadrao = "https://sheetdb.io/api/v1/5e8nz89fd5puk"
     
-    private var users = [Usuario]()
+    public var users = [Usuario]()
+    public var usertype = [UsuarioTipo]()
+    public var retornoUsuario = [Usuario]()
     
     
     func listaUsuarios() async{
@@ -82,9 +84,33 @@ import SwiftUI
             print("O dado nao e valido.")
         }
     }
+
+func listaUsuarioTipo() async{
+    // guard let url = URL(string: "https://api.sheety.co/76f5c7009c1695f3365d24f26f3fe380/foundation/usuario")
+    guard let url = URL(string: "\(urlPadrao)_")
+    else {
+        print("A URL nao esta funcionando.")
+        return
+    }
+    do {
+        let (dados, _) = try await URLSession.shared.data(from: url)        
+        
+        let decoder = JSONDecoder()
+        if let decodedResponse = try? decoder.decode([UsuarioTipo].self, from: dados) {
+            usertype = decodedResponse
+            print("decodificou")
+            // print(users)
+        } else {
+            // print(users)
+            print("nao decodificou")
+        }
+    } catch {
+        print("O dado nao e valido.")
+    }
+}
     
     
-    public var retornoUsuario = [Usuario]()
+    
     
     func procuraUsuario(nome :String) async -> Bool{
         
@@ -179,7 +205,7 @@ import SwiftUI
         }.resume()
     }
     
-//}
+}
     
     
 

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		627838712A1FE8B90093303C /* Modelos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 627838702A1FE8B90093303C /* Modelos.swift */; };
 		CE311EBD2A1D2F3F0093AC09 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE311EBC2A1D2F3F0093AC09 /* API.swift */; };
 		CE311EBF2A1D46000093AC09 /* Criptografia.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE311EBE2A1D46000093AC09 /* Criptografia.swift */; };
 		CE797AE22A0EAEF00093B020 /* MultipleViewsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE797AE12A0EAEF00093B020 /* MultipleViewsApp.swift */; };
@@ -18,6 +19,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		627838702A1FE8B90093303C /* Modelos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Modelos.swift; sourceTree = "<group>"; };
 		CE311EBC2A1D2F3F0093AC09 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		CE311EBE2A1D46000093AC09 /* Criptografia.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Criptografia.swift; sourceTree = "<group>"; };
 		CE797ADE2A0EAEF00093B020 /* MultipleViews.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MultipleViews.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -62,6 +64,7 @@
 				CE797AE12A0EAEF00093B020 /* MultipleViewsApp.swift */,
 				CE797AE32A0EAEF00093B020 /* ContentView.swift */,
 				CE797AEF2A0EB02B0093B020 /* Login.swift */,
+				627838702A1FE8B90093303C /* Modelos.swift */,
 				CE311EBE2A1D46000093AC09 /* Criptografia.swift */,
 				CE797AF12A0ED04A0093B020 /* Cadastro.swift */,
 				CE311EBC2A1D2F3F0093AC09 /* API.swift */,
@@ -151,6 +154,7 @@
 			files = (
 				CE797AF02A0EB02B0093B020 /* Login.swift in Sources */,
 				CE797AF22A0ED04A0093B020 /* Cadastro.swift in Sources */,
+				627838712A1FE8B90093303C /* Modelos.swift in Sources */,
 				CE797AE42A0EAEF00093B020 /* ContentView.swift in Sources */,
 				CE797AE22A0EAEF00093B020 /* MultipleViewsApp.swift in Sources */,
 				CE311EBF2A1D46000093AC09 /* Criptografia.swift in Sources */,

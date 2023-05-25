@@ -9,24 +9,13 @@ enum AuthenticationStatus {
     case failure
 }
 
-public struct Usuario: Codable {
-    let id: String
-    let nome: String
-    let login: String
-    let senha: String
-    let tipo: String
-    //let reset: Bool
-    //let ativo: Bool
-    // let data_cricao: Date
-}
-
-
-
 struct Login: View {
+    var api = API()
     @State private var username: String = ""
     @State private var password: String = ""
     @State private var authenticationStatus: AuthenticationStatus?
     @State private var users = [Usuario]()
+    
     
     var body: some View {
         VStack {
@@ -54,7 +43,7 @@ struct Login: View {
             
             Button(action: {
                 let parameters: [String: Any] = ["id": "6", "nome": "teste"]
-                updateSenhaUsuario(parameters: parameters)
+                api.updateSenhaUsuario(parameters: parameters)
             }, label: {
                 Text("Update")
             })
@@ -82,11 +71,11 @@ struct Login: View {
     
     func authenticateUser() async {
         
-        if await procuraUsuario(nome: username) == true {
+        if await api.procuraUsuario(nome: username) == true {
             
-            let user = retornoUsuario.first
+            let usuariologado = api.retornoUsuario.first
             
-            if user?.senha == password.sha256() {
+            if usuariologado?.senha == password.sha256() {
                 // Senha correta, autenticação bem-sucedida
                 authenticationStatus = .success
             } else {
