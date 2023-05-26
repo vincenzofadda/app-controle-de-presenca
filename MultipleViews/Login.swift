@@ -1,9 +1,7 @@
 import SwiftUI
 
 func criptografaSenha(senha :String) -> String{
-    
-    
-    return ""
+    return senha.sha256()
 }
 
 enum AuthenticationStatus {
@@ -11,18 +9,13 @@ enum AuthenticationStatus {
     case failure
 }
 
-public struct Usuario: Codable {
-    let id: String
-    let login: String
-    let senha: String
-    let tipo: String
-}
-
 struct Login: View {
+    var api = API()
     @State private var username: String = ""
     @State private var password: String = ""
     @State private var authenticationStatus: AuthenticationStatus?
     @State private var users = [Usuario]()
+    
     
     var body: some View {
         VStack {
@@ -48,11 +41,28 @@ struct Login: View {
             .foregroundColor(.white)
             .cornerRadius(10)
             
+            Button(action: {
+                // teste de delete
+                // api.delete(column: "id", value: "88", sheet: "UsuarioTipo")
+               
+                // teste de update
+                // api.updateUsuario(colunaPesquisa: "nome", valorPesquisa: "*Roberto*", parameters: ["email": "teste", "reset": "1"])
+                Task {
+                    await api.procuraUsuario(nomecoluna: "id", valor:"1")
+                }
+            }, label: {
+                Text("Listar Usuarios")
+            })
+            .padding()
+            .background(Color.blue)
+            .foregroundColor(.white)
+            .cornerRadius(10)
+            
             switch authenticationStatus {
             case .success:
                 Text("Autenticação bem-sucedida!")
             case .failure:
-                Text("Erro de autenticação. Verifique suas credenciais.")
+                Text("Erro de autenticação.  Verifique suas credenciais.")
                     .foregroundColor(.red)
             case .none:
                 EmptyView()
@@ -67,44 +77,19 @@ struct Login: View {
     
     func authenticateUser() async {
         
-        if await procuraUsuario(nome: username) {
-            
-            let user = retornoUsuario.first
-            
-            if user?.senha == password {
-                // Senha correta, autenticação bem-sucedida
-                authenticationStatus = .success
-            } else {
-                // Senha incorreta
-                authenticationStatus = .failure
-            }
-        }
-    }
-        
-        
-        
-//        // Verificar se o usuário existe e se a senha está correta
-//        let userExists = users.contains { user in
-//            return user.login == username
-//        }
+//        if await api.procuraUsuario(nome: username) == true {
 //
-//        if userExists {
-//            // Encontrou o usuário, agora verificar a senha
-//            let user = users.first { user in
-//                return user.login == username
-//            }
+//            let usuariologado = api.retornoUsuario.first
 //
-//            if user?.senha == password {
+//            if usuariologado?.senha == password.sha256() {
 //                // Senha correta, autenticação bem-sucedida
 //                authenticationStatus = .success
 //            } else {
 //                // Senha incorreta
 //                authenticationStatus = .failure
 //            }
-//        } else {
-//            // Usuário não encontrado
-//            authenticationStatus = .failure
 //        }
+    }
 }
 
 struct Login_Previews: PreviewProvider {
