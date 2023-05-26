@@ -58,6 +58,8 @@ class API {
     public var users = [Usuario]()
     public var usertype = [UsuarioTipo]()
     public var turma = [Turma]()
+    public var turmaalunos = [TurmaAlunos]()
+    public var turmaalunosfrequencia = [TurmaAlunosFrequencia]()
     public var retornoUsuario = [Usuario]()
     
     func listaUsuarios() async {
@@ -131,8 +133,51 @@ class API {
         }
     }
     
+    func listaTurmaAlunos() async{
+        guard let url = URL(string: "\(urlPadrao)?sheet=TurmaAlunos")
+        else {
+            print("A URL nao esta funcionando.")
+            return
+        }
+        do {
+            let (dados, _) = try await URLSession.shared.data(from: url)
+            
+            let decoder = JSONDecoder()
+            if let decodedResponse = try? decoder.decode([TurmaAlunos].self, from: dados) {
+                turmaalunos = decodedResponse
+                print("decodificou")
+                // print(users)
+            } else {
+                // print(users)
+                print("nao decodificou")
+            }
+        } catch {
+            print("O dado nao e valido.")
+        }
+    }
     
-    
+    func listaTurmaAlunosFrequencia() async{
+        guard let url = URL(string: "\(urlPadrao)?sheet=TurmaAlunosFrequencia")
+        else {
+            print("A URL nao esta funcionando.")
+            return
+        }
+        do {
+            let (dados, _) = try await URLSession.shared.data(from: url)
+            
+            let decoder = JSONDecoder()
+            if let decodedResponse = try? decoder.decode([TurmaAlunosFrequencia].self, from: dados) {
+                turmaalunosfrequencia = decodedResponse
+                print("decodificou")
+                // print(users)
+            } else {
+                // print(users)
+                print("nao decodificou")
+            }
+        } catch {
+            print("O dado nao e valido.")
+        }
+    }
     
     func procuraUsuario(nomecoluna: String, valor: String) async -> Bool{
         do {

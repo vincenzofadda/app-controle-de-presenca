@@ -33,7 +33,7 @@ struct Turma: Codable {
     let ativo: String
 }
 
-struct TurmaAluno: Codable {
+struct TurmaAlunos: Codable {
     let id: String
     let turma: String
     let usuario: String
