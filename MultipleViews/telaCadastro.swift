@@ -12,10 +12,12 @@ enum ProfileSection : String, CaseIterable {
     case aluno = "Aluno"
 }
 
-struct ContentView: View {
+struct Cadastro: View {
     @State private var nomeCompleto: String = ""
     @State private var email: String = ""
+    @State private var confirmaEmail: String = ""
     @State private var criarsenha: String = ""
+    @State private var confirmaSenha: String = ""
     @State private var repetirEmail: String = ""
     @State private var aluno = false
     @State var segmentationSelection : ProfileSection = .professor
@@ -40,13 +42,17 @@ struct ContentView: View {
                 .autocorrectionDisabled()
                 .autocapitalization(.none)
 
-            TextField("Confirme seu e-mail", text: $email)
+            TextField("Confirme seu e-mail", text: $confirmaEmail)
                 .textFieldStyle(RoundedBorderTextFieldStyle())
                 .padding()
                 .autocorrectionDisabled()
                 .autocapitalization(.none)
 
             SecureField("Insira sua senha", text: $criarsenha)
+                .textFieldStyle(RoundedBorderTextFieldStyle())
+                .padding()
+            
+            SecureField("Insira sua senha", text: $confirmaSenha)
                 .textFieldStyle(RoundedBorderTextFieldStyle())
                 .padding()
 
@@ -64,8 +70,8 @@ struct ContentView: View {
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
+struct Cadastro_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        Cadastro()
     }
 }

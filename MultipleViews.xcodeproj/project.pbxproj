@@ -62,11 +62,11 @@
 				CE797AE12A0EAEF00093B020 /* MultipleViewsApp.swift */,
 				CE797AE32A0EAEF00093B020 /* ContentView.swift */,
 				CE797AEF2A0EB02B0093B020 /* Login.swift */,
+				CE99540F2A1D54B1001B7FEF /* telaCadastro.swift */,
 				CE797AF12A0ED04A0093B020 /* Cadastro.swift */,
 				CE311EBC2A1D2F3F0093AC09 /* API.swift */,
 				CE797AE52A0EAEF00093B020 /* Assets.xcassets */,
 				CE797AE72A0EAEF00093B020 /* Preview Content */,
-				CE99540F2A1D54B1001B7FEF /* telaCadastro.swift */,
 			);
 			path = MultipleViews;
 			sourceTree = "<group>";
