@@ -13,10 +13,10 @@ struct Usuario: Codable {
     let nome: String
     let login: String
     let senha: String
-    let tipo: String
-    //let reset: Bool
-    //let ativo: Bool
-    // let data_cricao: Date
+    let usuariotipo: String
+    let reset: Bool
+    let ativo: Bool
+    let data_cricao: Date
 }
 
 struct UsuarioTipo: Codable {

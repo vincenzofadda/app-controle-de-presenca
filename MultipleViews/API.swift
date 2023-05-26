@@ -60,7 +60,7 @@ class API {
     public var turma = [Turma]()
     public var retornoUsuario = [Usuario]()
     
-    func listaUsuarios() async{
+    func listaUsuarios() async {
         // guard let url = URL(string: "https://api.sheety.co/76f5c7009c1695f3365d24f26f3fe380/foundation/usuario")
         guard let url = URL(string: "\(urlPadrao)?sheet=Usuario")
         else {
@@ -134,9 +134,9 @@ class API {
     
     
     
-    func procuraUsuario(nome :String) async -> Bool{
+    func procuraUsuario(nomecoluna: String, valor: String) async -> Bool{
         do {
-            guard let url = URL(string: "\(urlPadrao)/search?login=\(nome)")
+            guard let url = URL(string: "\(urlPadrao)/search?\(nomecoluna)=\(valor)")
             else {
                 print("URL Invalida.")
                 return false
@@ -154,7 +154,7 @@ class API {
     }
     
     
-    func postUsuario(){
+    func postUsuario(id: String, nome :String, login: String, senha: String, usuariotipo: Int, reset: Bool, ativo: Bool, datacriacao: Date){
         do {
             guard let url =  URL(string: urlPadrao)
             else{
@@ -163,7 +163,12 @@ class API {
             //### This is a little bit simplified. You may need to escape `username` and `password` when they can contain some special characters...
             // let body = "id=\(username)&password=\(password)"
             //let body = "id=99&login=teste&senha=123456&tipo=Professor"
-            let body = "id=88&nome=teste&sheet=UsuarioTipo"
+            let body_ = "id=88&nome=teste&sheet=UsuarioTipo"
+            
+            
+            let body = "id=\(id)&nome=\(nome)&login=\(login)&senha=\(senha.sha256())&usuariotipo=\(usuariotipo)&reset=\(reset)&"
+            
+            
             let finalBody = body.data(using: .utf8)
             var request = URLRequest(url: url)
             request.httpMethod = "POST"
@@ -187,19 +192,24 @@ class API {
     
     func updateteste(){
         do {
-            guard let url =  URL(string:
-                                    "https://sheetdb.io/api/v1/5e8nz89fd5puk?column=id&value=4&sheet=UsuarioTipo")
+            guard let url =  URL(
+                string: "\(urlPadrao)/id/3"
+            )
             else{
                 return
             }
             //### This is a little bit simplified. You may need to escape `username` and `password` when they can contain some special characters...
             // let body = "id=\(username)&password=\(password)"
             //let body = "id=99&login=teste&senha=123456&tipo=Professor"
-            let body = "nome=teste"
-            let finalBody = body.data(using: .utf8)
+            let body = try! JSONSerialization.data(withJSONObject: ["nome": "teste"])
+            print(String(data: body, encoding: .utf8)!)
+//            let finalBody = body.data(using: .utf8)
             var request = URLRequest(url: url)
-            request.httpMethod = "UPDATE"
-            request.httpBody = finalBody
+            request.allHTTPHeaderFields = [
+                "Content-Type": "application/json"
+            ]
+            request.httpMethod = "PATCH"
+            request.httpBody = body
 
             URLSession.shared.dataTask(with: request){
                 (data, response, error) in

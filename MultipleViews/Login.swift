@@ -42,10 +42,13 @@ struct Login: View {
             .cornerRadius(10)
             
             Button(action: {
-                let parameters: [String: Any] = ["id": "6", "nome": "teste"]
-                //api.updateSenhaUsuario(parameters: parameters)
-                //api.delete(column: "id", value: "88", sheet: "UsuarioTipo")
+                // let parameters: [String: Any] = ["id": "6", "nome": "teste"]
+                // api.updateSenhaUsuario(parameters: parameters)
+                // api.delete(column: "id", value: "88", sheet: "UsuarioTipo")
                 api.updateteste()
+//                Task {
+//                    await api.listaUsuarios()
+//                }
             }, label: {
                 Text("Delete")
             })
@@ -73,18 +76,18 @@ struct Login: View {
     
     func authenticateUser() async {
         
-        if await api.procuraUsuario(nome: username) == true {
-            
-            let usuariologado = api.retornoUsuario.first
-            
-            if usuariologado?.senha == password.sha256() {
-                // Senha correta, autenticação bem-sucedida
-                authenticationStatus = .success
-            } else {
-                // Senha incorreta
-                authenticationStatus = .failure
-            }
-        }
+//        if await api.procuraUsuario(nome: username) == true {
+//
+//            let usuariologado = api.retornoUsuario.first
+//
+//            if usuariologado?.senha == password.sha256() {
+//                // Senha correta, autenticação bem-sucedida
+//                authenticationStatus = .success
+//            } else {
+//                // Senha incorreta
+//                authenticationStatus = .failure
+//            }
+//        }
     }
 }
 
