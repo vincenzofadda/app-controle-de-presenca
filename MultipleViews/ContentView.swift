@@ -19,8 +19,7 @@ struct ContentView: View {
             ZStack{
                 gradient
                     .ignoresSafeArea()
-                retangulo()
-                    .ignoresSafeArea()
+                
                 VStack {
                     
                     Text("Tenha uma sala de aula na palma da sua mao")
