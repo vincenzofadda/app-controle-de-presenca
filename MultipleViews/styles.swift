@@ -8,6 +8,7 @@
 import Foundation
 import SwiftUI
 
+
 let purple = Color(
     .sRGB,
     red: Double(0x51) / 255,
@@ -48,15 +49,12 @@ let gradient = LinearGradient(
     endPoint: .bottomTrailing
 )
 
-extension View {
-    func customNavigationBarTitle(_ title: String, foregroundColor: Color) -> some View {
-        self
-            .navigationBarTitle(title, displayMode: .inline)
-            .navigationBarBackButtonHidden(false)
-            .onAppear {
-                let appearance = UINavigationBarAppearance()
-                appearance.titleTextAttributes = [.foregroundColor: UIColor(foregroundColor)]
-                UINavigationBar.appearance().standardAppearance = appearance
-            }
+func retangulo() -> some View {
+    GeometryReader { proxy in
+        RoundedRectangle(cornerRadius: 40)
+            .frame(width: proxy.size.width, height: proxy.size.height * 0.87)
+            .padding(.top, proxy.size.height * 0.13)
+            .foregroundColor(.white)
     }
 }
+
