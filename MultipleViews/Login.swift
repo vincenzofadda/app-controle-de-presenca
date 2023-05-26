@@ -19,7 +19,7 @@ struct Login: View {
     
     var body: some View {
         VStack {
-            TextField("Nome de usuário", text: $username)
+            TextField("E-mail", text: $username)
                 .textFieldStyle(RoundedBorderTextFieldStyle())
                 .padding()
                 .autocorrectionDisabled()

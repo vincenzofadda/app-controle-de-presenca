@@ -18,6 +18,9 @@
 		CE797AE92A0EAEF00093B020 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE797AE82A0EAEF00093B020 /* Preview Assets.xcassets */; };
 		CE797AF02A0EB02B0093B020 /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE797AEF2A0EB02B0093B020 /* Login.swift */; };
 		CE797AF22A0ED04A0093B020 /* Cadastro.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE797AF12A0ED04A0093B020 /* Cadastro.swift */; };
+
+		CE9954102A1D54B1001B7FEF /* telaCadastro.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE99540F2A1D54B1001B7FEF /* telaCadastro.swift */; };
+
 		CECDA97B2A1D512500596E0C /* Poppins-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CECDA9742A1D512400596E0C /* Poppins-Thin.ttf */; };
 		CECDA97C2A1D512500596E0C /* Poppins-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CECDA9752A1D512400596E0C /* Poppins-Light.ttf */; };
 		CECDA97D2A1D512500596E0C /* Poppins-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CECDA9762A1D512400596E0C /* Poppins-Regular.ttf */; };
@@ -25,6 +28,7 @@
 		CECDA97F2A1D512500596E0C /* Poppins-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CECDA9782A1D512500596E0C /* Poppins-SemiBold.ttf */; };
 		CECDA9802A1D512500596E0C /* Poppins-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CECDA9792A1D512500596E0C /* Poppins-Black.ttf */; };
 		CECDA9812A1D512500596E0C /* Poppins-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CECDA97A2A1D512500596E0C /* Poppins-Bold.ttf */; };
+>>>>>>> main
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +44,9 @@
 		CE797AE82A0EAEF00093B020 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		CE797AEF2A0EB02B0093B020 /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
 		CE797AF12A0ED04A0093B020 /* Cadastro.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cadastro.swift; sourceTree = "<group>"; };
+
+		CE99540F2A1D54B1001B7FEF /* telaCadastro.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = telaCadastro.swift; sourceTree = "<group>"; };
+
 		CECDA9742A1D512400596E0C /* Poppins-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Thin.ttf"; sourceTree = "<group>"; };
 		CECDA9752A1D512400596E0C /* Poppins-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Light.ttf"; sourceTree = "<group>"; };
 		CECDA9762A1D512400596E0C /* Poppins-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Regular.ttf"; sourceTree = "<group>"; };
@@ -48,6 +55,7 @@
 		CECDA9792A1D512500596E0C /* Poppins-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Black.ttf"; sourceTree = "<group>"; };
 		CECDA97A2A1D512500596E0C /* Poppins-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Bold.ttf"; sourceTree = "<group>"; };
 		CECDA9832A1D515F00596E0C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+>>>>>>> main
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,8 +93,12 @@
 				CE797AE12A0EAEF00093B020 /* MultipleViewsApp.swift */,
 				CE797AE32A0EAEF00093B020 /* ContentView.swift */,
 				CE797AEF2A0EB02B0093B020 /* Login.swift */,
+
+				CE99540F2A1D54B1001B7FEF /* telaCadastro.swift */,
+
 				627838702A1FE8B90093303C /* Modelos.swift */,
 				CE311EBE2A1D46000093AC09 /* Criptografia.swift */,
+
 				CE797AF12A0ED04A0093B020 /* Cadastro.swift */,
 				CE311EBC2A1D2F3F0093AC09 /* API.swift */,
 				CE074FD72A2136D500030BA5 /* HubView.swift */,
@@ -196,7 +208,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+
+				CE9954102A1D54B1001B7FEF /* telaCadastro.swift in Sources */,
+
 				CE074FDA2A2137A400030BA5 /* styles.swift in Sources */,
+
 				CE797AF02A0EB02B0093B020 /* Login.swift in Sources */,
 				CE797AF22A0ED04A0093B020 /* Cadastro.swift in Sources */,
 				CE074FD82A2136D500030BA5 /* HubView.swift in Sources */,
