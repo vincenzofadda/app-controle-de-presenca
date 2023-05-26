@@ -42,15 +42,16 @@ struct Login: View {
             .cornerRadius(10)
             
             Button(action: {
-                // let parameters: [String: Any] = ["id": "6", "nome": "teste"]
-                // api.updateSenhaUsuario(parameters: parameters)
+                // teste de delete
                 // api.delete(column: "id", value: "88", sheet: "UsuarioTipo")
-                api.updateteste()
-//                Task {
-//                    await api.listaUsuarios()
-//                }
+               
+                // teste de update
+                // api.updateUsuario(colunaPesquisa: "nome", valorPesquisa: "*Roberto*", parameters: ["email": "teste", "reset": "1"])
+                Task {
+                    await api.procuraUsuario(nomecoluna: "id", valor:"1")
+                }
             }, label: {
-                Text("Delete")
+                Text("Listar Usuarios")
             })
             .padding()
             .background(Color.blue)

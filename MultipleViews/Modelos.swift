@@ -11,12 +11,12 @@ import SwiftUI
 struct Usuario: Codable {
     let id: String
     let nome: String
-    let login: String
+    let email: String
     let senha: String
     let usuariotipo: String
-    let reset: Bool
-    let ativo: Bool
-    let data_cricao: Date
+    let reset: String
+    let ativo: String
+    let datacriacao: String
 }
 
 struct UsuarioTipo: Codable {

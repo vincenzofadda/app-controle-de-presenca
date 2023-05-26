@@ -145,6 +145,9 @@ class API {
             
             if let decodedResponse = try? JSONDecoder().decode([Usuario].self, from: dados) {
                 retornoUsuario = decodedResponse
+                print("Decodificou")
+            } else {
+                print("nao decodificou")
             }
         }
         catch {
@@ -154,21 +157,14 @@ class API {
     }
     
     
-    func postUsuario(id: String, nome :String, login: String, senha: String, usuariotipo: Int, reset: Bool, ativo: Bool, datacriacao: Date){
+    func postUsuario(id: String, nome :String, email: String, senha: String, usuariotipo: Int, reset: Bool, ativo: Bool, datacriacao: Date){
         do {
             guard let url =  URL(string: urlPadrao)
             else{
                 return
             }
-            //### This is a little bit simplified. You may need to escape `username` and `password` when they can contain some special characters...
-            // let body = "id=\(username)&password=\(password)"
-            //let body = "id=99&login=teste&senha=123456&tipo=Professor"
-            let body_ = "id=88&nome=teste&sheet=UsuarioTipo"
             
-            
-            let body = "id=\(id)&nome=\(nome)&login=\(login)&senha=\(senha.sha256())&usuariotipo=\(usuariotipo)&reset=\(reset)&"
-            
-            
+            let body = "id=\(id)&nome=\(nome)&email=\(email)&senha=\(senha.sha256())&usuariotipo=\(usuariotipo)&reset=\(reset)&ativo=\(ativo)&datacriacao=\(datacriacao)"
             let finalBody = body.data(using: .utf8)
             var request = URLRequest(url: url)
             request.httpMethod = "POST"
@@ -190,20 +186,18 @@ class API {
         }
     }
     
-    func updateteste(){
+    func updateUsuario(colunaPesquisa: String, valorPesquisa: String, parameters: [String: Any]){
         do {
             guard let url =  URL(
-                string: "\(urlPadrao)/id/3"
+                string: "\(urlPadrao)/\(colunaPesquisa)/\(valorPesquisa)"
             )
             else{
                 return
             }
-            //### This is a little bit simplified. You may need to escape `username` and `password` when they can contain some special characters...
-            // let body = "id=\(username)&password=\(password)"
-            //let body = "id=99&login=teste&senha=123456&tipo=Professor"
-            let body = try! JSONSerialization.data(withJSONObject: ["nome": "teste"])
+            
+//            let body = try! JSONSerialization.data(withJSONObject: ["nome": "Roberto Filho", "email": "email@gmail.com"])
+            let body = try! JSONSerialization.data(withJSONObject: [parameters])
             print(String(data: body, encoding: .utf8)!)
-//            let finalBody = body.data(using: .utf8)
             var request = URLRequest(url: url)
             request.allHTTPHeaderFields = [
                 "Content-Type": "application/json"
