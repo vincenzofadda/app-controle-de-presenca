@@ -9,6 +9,10 @@ import SwiftUI
 
 
 struct ContentView: View {
+    // navBar
+//    init() {
+//            UINavigationBar.appearance().titleTextAttributes = [.foregroundColor: UIColor.white]
+//        }
     var body: some View {
         GeometryReader { proxy in
         NavigationView {
@@ -46,11 +50,16 @@ struct ContentView: View {
                             .shadow(color: blackWithOpacity, radius: 10, x: 3, y: 5)
                     }
                     .padding()
+                    
                 }
+//                .navigationBarTitle("Título", displayMode: .inline)
+//                .navigationBarBackButtonHidden(false)
                 
                 .padding()
             }
+            
         }
+            
     }
 }
 }

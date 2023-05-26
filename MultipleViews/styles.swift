@@ -47,3 +47,16 @@ let gradient = LinearGradient(
     startPoint: .topLeading,
     endPoint: .bottomTrailing
 )
+
+extension View {
+    func customNavigationBarTitle(_ title: String, foregroundColor: Color) -> some View {
+        self
+            .navigationBarTitle(title, displayMode: .inline)
+            .navigationBarBackButtonHidden(false)
+            .onAppear {
+                let appearance = UINavigationBarAppearance()
+                appearance.titleTextAttributes = [.foregroundColor: UIColor(foregroundColor)]
+                UINavigationBar.appearance().standardAppearance = appearance
+            }
+    }
+}
