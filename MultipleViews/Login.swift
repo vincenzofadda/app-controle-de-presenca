@@ -44,7 +44,8 @@ struct Login: View {
             Button(action: {
                 let parameters: [String: Any] = ["id": "6", "nome": "teste"]
                 //api.updateSenhaUsuario(parameters: parameters)
-                api.delete(column: "id", value: "88", sheet: "UsuarioTipo")
+                //api.delete(column: "id", value: "88", sheet: "UsuarioTipo")
+                api.updateteste()
             }, label: {
                 Text("Delete")
             })

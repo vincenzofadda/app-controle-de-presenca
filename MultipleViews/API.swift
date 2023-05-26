@@ -185,10 +185,42 @@ class API {
         }
     }
     
-    
-    func delete(column :String, value: String, sheet: String){
+    func updateteste(){
         do {
-            guard let url =  URL(string: "\(urlPadrao)?column=\(column)&value=\(value)&sheet=\(sheet)") //"https://sheetdb.io/api/v1/5e8nz89fd5puk?column=id&value=99&sheet=Usuario"
+            guard let url =  URL(string:
+                                    "https://sheetdb.io/api/v1/5e8nz89fd5puk?column=id&value=4&sheet=UsuarioTipo")
+            else{
+                return
+            }
+            //### This is a little bit simplified. You may need to escape `username` and `password` when they can contain some special characters...
+            // let body = "id=\(username)&password=\(password)"
+            //let body = "id=99&login=teste&senha=123456&tipo=Professor"
+            let body = "nome=teste"
+            let finalBody = body.data(using: .utf8)
+            var request = URLRequest(url: url)
+            request.httpMethod = "UPDATE"
+            request.httpBody = finalBody
+
+            URLSession.shared.dataTask(with: request){
+                (data, response, error) in
+                //print(response as Any)
+                if let error = error {
+                    print(error)
+                    return
+                }
+                guard let data = data else{
+                    return
+                }
+               print(data, String(data: data, encoding: .utf8) ?? "*unknown encoding*")
+                
+            }.resume()
+        }
+    }
+    
+    
+    func deleteSheet(column :String, value: String, sheet: String){
+        do {
+            guard let url =  URL(string: "\(urlPadrao)?column=\(column)&value=\(value)&sheet=\(sheet)")
             else{
                 return
             }
