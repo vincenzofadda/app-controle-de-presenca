@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CE074FD82A2136D500030BA5 /* HubView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE074FD72A2136D500030BA5 /* HubView.swift */; };
+		CE074FDA2A2137A400030BA5 /* styles.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE074FD92A2137A400030BA5 /* styles.swift */; };
 		CE311EBD2A1D2F3F0093AC09 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE311EBC2A1D2F3F0093AC09 /* API.swift */; };
 		CE797AE22A0EAEF00093B020 /* MultipleViewsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE797AE12A0EAEF00093B020 /* MultipleViewsApp.swift */; };
 		CE797AE42A0EAEF00093B020 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE797AE32A0EAEF00093B020 /* ContentView.swift */; };
@@ -24,6 +26,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CE074FD72A2136D500030BA5 /* HubView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HubView.swift; sourceTree = "<group>"; };
+		CE074FD92A2137A400030BA5 /* styles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = styles.swift; sourceTree = "<group>"; };
 		CE311EBC2A1D2F3F0093AC09 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		CE797ADE2A0EAEF00093B020 /* MultipleViews.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MultipleViews.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE797AE12A0EAEF00093B020 /* MultipleViewsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipleViewsApp.swift; sourceTree = "<group>"; };
@@ -79,8 +83,10 @@
 				CE797AEF2A0EB02B0093B020 /* Login.swift */,
 				CE797AF12A0ED04A0093B020 /* Cadastro.swift */,
 				CE311EBC2A1D2F3F0093AC09 /* API.swift */,
+				CE074FD72A2136D500030BA5 /* HubView.swift */,
 				CE797AE52A0EAEF00093B020 /* Assets.xcassets */,
 				CE797AE72A0EAEF00093B020 /* Preview Content */,
+				CE074FD92A2137A400030BA5 /* styles.swift */,
 			);
 			path = MultipleViews;
 			sourceTree = "<group>";
@@ -184,8 +190,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE074FDA2A2137A400030BA5 /* styles.swift in Sources */,
 				CE797AF02A0EB02B0093B020 /* Login.swift in Sources */,
 				CE797AF22A0ED04A0093B020 /* Cadastro.swift in Sources */,
+				CE074FD82A2136D500030BA5 /* HubView.swift in Sources */,
 				CE797AE42A0EAEF00093B020 /* ContentView.swift in Sources */,
 				CE797AE22A0EAEF00093B020 /* MultipleViewsApp.swift in Sources */,
 				CE311EBD2A1D2F3F0093AC09 /* API.swift in Sources */,
